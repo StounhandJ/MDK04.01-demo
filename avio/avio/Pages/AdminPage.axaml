@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:avio.ViewModels"
+             xmlns:avio="clr-namespace:avio"
+             xmlns:models="clr-namespace:avio.Models"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="avio.Pages.AdminPage">
+    <Design.DataContext>
+        <viewModels:MainWindowViewModel />
+    </Design.DataContext>
+
+    <DockPanel>
+        <Border DockPanel.Dock="Top" BorderBrush="black" BorderThickness=" 0 0 0 2">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Add user" />
+                <Button Content="Exit" Command="{Binding CloseCommand}" />
+            </StackPanel>
+        </Border>
+
+        <StackPanel Margin="40 40 0 0">
+            <!-- <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Spacing="30"> -->
+            <!--     <TextBlock Text="Office:" VerticalAlignment="Center" /> -->
+            <!--     <ComboBox /> -->
+            <!-- </StackPanel> -->
+
+            <DataGrid Width="200" Height="200" Name="MyDataGrid" Items="{Binding Users}" AutoGenerateColumns="False" Background="red">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Forename"  Binding="{Binding Login}" />
+                    <!-- <DataGridTextColumn Header="Surname" Binding="{Binding LastName, Path=Users}" /> -->
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </DockPanel>
+</UserControl>
